@@ -52,6 +52,7 @@ Full URL: http://localhost:8080/elevator/rest/request/all
 5. start service
 
 ###Corresponding output:
+```
 00:41:40,494 INFO  [org.jboss.resteasy.spi.ResteasyDeployment] Adding singleton resource com.intuit.elevator.service.ElevatorService from Application javax.ws.rs.core.Application
 00:41:52,438 INFO  [com.intuit.elevator.controller.Controller] Starting service...
 00:41:52,438 INFO  [com.intuit.elevator.controller.Controller] Started Thread-26
@@ -92,6 +93,7 @@ Full URL: http://localhost:8080/elevator/rest/request/all
 00:43:07,470 INFO  [com.intuit.elevator.controller.Elevator] Thread-26: No Requests. Wait 5 secs
 00:43:12,471 INFO  [com.intuit.elevator.controller.Elevator] Thread-26: No Requests. Wait 5 secs
 00:43:16,890 WARN  [com.intuit.elevator.controller.Controller] Service already started
+```
 
 ###Unit Tests
 
