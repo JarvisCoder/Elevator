@@ -1,7 +1,7 @@
 ##Elevator - Maven web application
 
 ###Deploy Application
-1. $project_root: mvn clean install
+1. $project_root: mvn clean package
 2. Copy $project_root/target/elevator.war to Application Server of your choice. In my case it is JBoss 6.x
 
 ###Restful Service
@@ -92,3 +92,24 @@ Full URL: http://localhost:8080/elevator/rest/request/all
 00:43:07,470 INFO  [com.intuit.elevator.controller.Elevator] Thread-26: No Requests. Wait 5 secs
 00:43:12,471 INFO  [com.intuit.elevator.controller.Elevator] Thread-26: No Requests. Wait 5 secs
 00:43:16,890 WARN  [com.intuit.elevator.controller.Controller] Service already started
+
+###Unit Tests
+
+There are unit testcases that cover all functionalities of Elevator and Controller. Use the code snippet below for running the tests.
+
+$project_root: mvn test 
+
+Output
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.intuit.elevator.tests.AllTests
+log4j:WARN No appenders could be found for logger (com.intuit.elevator.controller.Controller).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.104 sec
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
