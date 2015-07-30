@@ -34,4 +34,18 @@ public class Request {
 		return "From:" + this.from +" To:"+ this.to; 
 	}
 	
+	@Override
+	public boolean equals(Object x) {
+		Request r = (Request) x;
+		if(this.from == r.getFrom() && this.to == r.getTo())
+			return true;
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return (this.from*10)+this.to;
+	}
+
+	
 }

@@ -14,7 +14,7 @@ import com.intuit.elevator.controller.Controller;
 import com.intuit.elevator.controller.Elevator;
 import com.intuit.elevator.controller.Request;
 
-//http://localhost:8080/RESTfulExample/rest/message/hello
+//http://localhost:8080/elevator/rest/message/hello
 @Path("/")
 public class ElevatorService {
 

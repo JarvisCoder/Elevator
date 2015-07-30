@@ -17,7 +17,7 @@ public class Elevator implements Runnable {
 	}
 	
 	public Elevator() {
-		level=0;
+		level=1;
 		setCurrentState(States.IDLE);
 	}
 	
@@ -35,7 +35,7 @@ public class Elevator implements Runnable {
 		this.currentState = currentState;
 	}
 	
-	void levelUp() throws InterruptedException {
+	public void levelUp() throws InterruptedException {
 		setCurrentState(States.UP);
 		describeState();
 		Thread.sleep(OPERATIONTIMER);
@@ -43,19 +43,19 @@ public class Elevator implements Runnable {
 		setCurrentState(States.IDLE);
 	}
 	
-	void levelDown() throws InterruptedException {
+	public void levelDown() throws InterruptedException {
 		setCurrentState(States.DOWN);
 		describeState();
 		Thread.sleep(OPERATIONTIMER);
 		this.setLevel(--this.level);
 		setCurrentState(States.IDLE);
 	}
-	void openDoor() throws InterruptedException {
+	public void openDoor() throws InterruptedException {
 		setCurrentState(States.OPEN);
 		this.describeState();
 		Thread.sleep(OPERATIONTIMER);
 	}
-	void closeDoor() throws InterruptedException {
+	public void closeDoor() throws InterruptedException {
 		setCurrentState(States.CLOSE);
 		this.describeState();
 		Thread.sleep(OPERATIONTIMER);
