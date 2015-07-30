@@ -1,10 +1,10 @@
-# Elevator - Maven web application
+##Elevator - Maven web application
 
-#Deploy Application
+###Deploy Application
 1. $project_root: mvn clean install
 2. Copy $project_root/target/elevator.war to Application Server of your choice. In my case it is JBoss 6.x
 
-#Restful Service
+###Restful Service
 
 ####Start Elevator Service with default of 30 levels
 
@@ -44,14 +44,14 @@ GET Produces application/json
 Full URL: http://localhost:8080/elevator/rest/request/all
 
 
-#Sample Interaction:
+###Sample Interaction:
 1. start service
 2. send request 3,5
 3. send request 5,10
 4. send request 20,20
 5. start service
 
-#Corresponding output:
+###Corresponding output:
 00:41:40,494 INFO  [org.jboss.resteasy.spi.ResteasyDeployment] Adding singleton resource com.intuit.elevator.service.ElevatorService from Application javax.ws.rs.core.Application
 00:41:52,438 INFO  [com.intuit.elevator.controller.Controller] Starting service...
 00:41:52,438 INFO  [com.intuit.elevator.controller.Controller] Started Thread-26
