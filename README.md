@@ -1,31 +1,48 @@
 # Elevator - Maven web application
 
 #Deploy Application
-Step1: $project_root: mvn clean install
-Step2: Copy $project_root/target/elevator.war to Application Server of your choice. In my case it is JBoss 6.x
+1. $project_root: mvn clean install
+2. Copy $project_root/target/elevator.war to Application Server of your choice. In my case it is JBoss 6.x
 
 #Restful Service
 
-Start Elevator Service with default of 30 levels
-  Endpoint: /start
-  POST Consumes("text/plain")
-  Full URL: http://localhost:8080/elevator/rest/start
+####Start Elevator Service with default of 30 levels
 
-Send request to elevator
-  Endpoint: /request
-  POST Consumes:application/json, Produces:application/json
-  Full URL: http://localhost:8080/elevator/rest/request
-  Request Body: {"from":5,"to":10}
-
-Get the top request
-  Endpoint: /request/top
-  GET Produces application/json
-  Full URL: http://localhost:8080/elevator/rest/request/top
+Endpoint: /start
   
-Get the list of requests
-  Endpoint: /request/all
-  GET Produces application/json 
-  Full URL: http://localhost:8080/elevator/rest/request/all
+POST Consumes("text/plain")
+  
+Full URL: http://localhost:8080/elevator/rest/start
+
+
+####Send request to elevator
+
+Endpoint: /request
+
+POST Consumes:application/json, Produces:application/json
+
+Full URL: http://localhost:8080/elevator/rest/request
+
+Request Body: {"from":5,"to":10}
+
+
+####Get the top request
+
+Endpoint: /request/top
+
+GET Produces application/json
+
+Full URL: http://localhost:8080/elevator/rest/request/top
+
+  
+####Get the list of requests
+
+Endpoint: /request/all
+
+GET Produces application/json 
+
+Full URL: http://localhost:8080/elevator/rest/request/all
+
 
 #Sample Interaction:
 1. start service
