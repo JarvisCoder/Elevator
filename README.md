@@ -101,20 +101,20 @@ There are unit testcases that cover all functionalities of Elevator and Controll
 
 $project_root: mvn test 
 
-Output
+```
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ elevator ---
+[INFO] Surefire report directory: /Users/apandiyan/Documents/workspace/elevator/target/surefire-reports
 
-TESTS
-
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
 Running com.intuit.elevator.tests.AllTests
-
 log4j:WARN No appenders could be found for logger (com.intuit.elevator.controller.Controller).
-
 log4j:WARN Please initialize the log4j system properly.
-
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.105 sec
 
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.104 sec
-
-Results:
+Results :
 
 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+```
