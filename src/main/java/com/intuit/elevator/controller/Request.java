@@ -3,12 +3,14 @@ package com.intuit.elevator.controller;
 public class Request {
 	private int from;
 	private int to;
-	private String description;
+	
+	public Request() {
+		
+	}
 	
 	public Request(int _from, int _to) {
 		this.from=_from;
 		this.to=_to;
-		this.description="";
 	}
 
 	public int getFrom() {
@@ -25,14 +27,6 @@ public class Request {
 
 	protected void setTo(int to) {
 		this.to = to;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	protected void setDescription(String description) {
-		this.description = description;
 	}
 	
 	@Override

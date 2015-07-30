@@ -3,12 +3,18 @@ package com.intuit.elevator.controller;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.apache.log4j.Logger;
+
 
 public class Controller {
+	
+	final static Logger logger = Logger.getLogger(Controller.class);
 	
 	private static Controller instance = null;
 	
 	protected Queue<Request> requests = new LinkedList<Request>();
+	
+	protected Thread elevator_service = (new Thread(new Elevator()));
 	
 	protected Controller() {
 //	      Exists only to defeat instantiation.
@@ -21,9 +27,23 @@ public class Controller {
 		return instance;
 	}
 	
-	public void addRequest(Request r) {
-		if(r!=null)
+	public boolean startService() {
+		if(!elevator_service.isAlive()) {
+			logger.info("Starting service...");
+			elevator_service.start();
+			logger.info("Started "+elevator_service.getName());
+			return true;
+		}
+		logger.warn("Service already started");
+		return false;
+	}
+	
+	public Request addRequest(Request r) {
+		if(r!=null && r.getFrom() > 0 && r.getFrom() < Elevator.MAXLEVEL && r.getTo() > 0 && r.getTo() < Elevator.MAXLEVEL) {
 			requests.add(r);
+			return requests.peek();
+		}
+		return null;
 	}
 	
 	public Request topRequest() {
@@ -34,7 +54,18 @@ public class Controller {
 	}
 	
 	public void listRequests() {
-		System.out.println(requests.toString());
+		logger.info(requests.toString());
+	}
+	
+	public Object[] getAllRequests() {
+		listRequests();
+		return requests.toArray();
+	}
+	
+	public Request peekTopRequest() {
+		if(requests.size()==0)
+			return null;
+		return requests.peek();
 	}
 
 }

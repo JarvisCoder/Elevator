@@ -2,15 +2,20 @@ package com.intuit.elevator.controller;
 
 import java.text.SimpleDateFormat;
 
+import org.apache.log4j.Logger;
+
 public class Elevator implements Runnable {
+	
+	final static Logger logger = Logger.getLogger(Elevator.class);
+	
 	private int level;
 	private States currentState;
-	private int MAXLEVEL = 10;
+	public static int MAXLEVEL = 30;
 	private int OPERATIONTIMER = 1000;
 	public enum States {
 		IDLE, UP, DOWN, OPEN, CLOSE
 	}
-
+	
 	public Elevator() {
 		level=0;
 		setCurrentState(States.IDLE);
@@ -59,7 +64,7 @@ public class Elevator implements Runnable {
 		java.util.Date date = new java.util.Date();
 		SimpleDateFormat simpleDate = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 		String formattedDate = simpleDate.format(date);
-		System.out.println(formattedDate  +" Level:" +this.getLevel() + " Status:"+this.getCurrentState());
+		logger.info(formattedDate  +" Level:" +this.getLevel() + " Status:"+this.getCurrentState());
 	}
 	
 //	Runs on a thread to serve the top request
@@ -67,11 +72,11 @@ public class Elevator implements Runnable {
 		while (true) {
 			Request r = Controller.getInstance().topRequest();
 			if(r!=null) {
-				if(r.getFrom() == r.getTo() || r.getFrom() > MAXLEVEL || r.getTo() < 0) {
-					System.out.println("Warning: Not a valid request. SKIP " + r);
+				if(r.getFrom() == r.getTo() || r.getFrom() > MAXLEVEL || r.getTo() > MAXLEVEL || r.getTo() < 0 || r.getFrom() < 0) {
+					logger.warn("Not a valid request. SKIP " + r);
 				}
 				else {
-					System.out.println("PROCESS REQUEST " + r);
+					logger.info("PROCESS REQUEST " + r);
 					Thread.sleep(OPERATIONTIMER);
 					while(this.getLevel()!=r.getFrom()) {
 						if (this.getLevel()>r.getFrom())
@@ -89,11 +94,11 @@ public class Elevator implements Runnable {
 					}
 					this.openDoor();
 					this.closeDoor();
-					System.out.println("COMPLETED "+r);
+					logger.info("COMPLETED "+r);
 				}
 			}
 			else {
-				System.out.println("No Requests. Wait 5 secs");
+				logger.info(Thread.currentThread().getName() + ": No Requests. Wait 5 secs");
 				Thread.sleep(5000);
 			}
 		}
@@ -106,5 +111,5 @@ public class Elevator implements Runnable {
 			e.printStackTrace();
 		}
 	}
-
+	
 }
