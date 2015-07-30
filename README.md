@@ -101,15 +101,18 @@ $project_root: mvn test
 
 Output
 
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
+TESTS
+
 Running com.intuit.elevator.tests.AllTests
+
 log4j:WARN No appenders could be found for logger (com.intuit.elevator.controller.Controller).
+
 log4j:WARN Please initialize the log4j system properly.
+
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.104 sec
 
-Results :
+Results:
 
 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
